@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 //import java libraries as need here
+import java.util.List;
+import java.util.NoSuchElementException;
 
+@RestController
 public class TicketingController {
     
 }
