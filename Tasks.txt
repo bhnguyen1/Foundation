@@ -1,0 +1,42 @@
+Look at the Spring Project and take inspiration from there
+
+make a .gitignore
+
+make a controller (using spring, this applies the logic we made in service with REST)
+
+make an entitiy (class that models the object you want to describe)
+add the entity injection
+add the table injection from the table that will make
+public class Employee {
+    auto-generated id;
+    
+}
+
+public class Manager extends Employee {
+    auto-generated id;
+    
+}
+
+public class Account {
+    private string username;
+    private string password;
+
+}
+
+public class Ticket {
+    int amount;
+    string description;
+    string = "Pending"; | Denied | Accepted
+}
+
+make an exceptions (probably)
+
+make a repository (the one to make queries to get data from database)
+
+make a service (contain the business logic and use the repository)
+
+make the main class run the app
+
+make the sql table based on the object 
+
+
