@@ -56,22 +56,22 @@ public class Ticket {
      * @param description
      * @param status
     */
-    public Ticket(Integer submittedBy, int amount, String description, Status status) {
+    public Ticket(Integer submittedBy, int amount, String description) {
         this.submittedBy = submittedBy;
         this.amount = amount;
         this.description = description;
-        this.status = status;
+        this.status = Status.PENDING;
     }
 
     /*
      * When a Ticket is retrieved from the database, the id is known.
     */
-    public Ticket(Integer ticketId, Integer submittedBy, int amount, String description, Status status) {
+    public Ticket(Integer ticketId, Integer submittedBy, int amount, String description) {
         this.ticketId = ticketId;
         this.submittedBy = submittedBy;
         this.amount = amount;
         this.description = description;
-        this.status = status;
+        this.status = Status.PENDING;
     }
 
     public Integer getTicketId() {

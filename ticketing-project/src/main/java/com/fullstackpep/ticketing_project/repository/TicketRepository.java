@@ -2,8 +2,10 @@ package com.fullstackpep.ticketing_project.repository;
 
 import com.fullstackpep.ticketing_project.entity.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+// import org.springframework.data.jpa.repository.Query;
+// import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /*
  * Point of this repository interface is to provide a way to interact with the database 
@@ -22,5 +24,9 @@ import org.springframework.data.repository.query.Param;
 */
 
 public interface TicketRepository extends JpaRepository<Ticket, Integer>{
-    
+    ///checks to see all tickets made by a user
+    List<Ticket> findTicketsBySubmittedBy(Integer userId);
+
+    //checks to see all tickets by a certain status
+    List<Ticket> findTicketsByStatus(String status);
 }

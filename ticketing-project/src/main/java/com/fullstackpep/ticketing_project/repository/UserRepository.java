@@ -20,6 +20,13 @@ import org.springframework.data.repository.query.Param;
  * login into the account
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
-    
-    
+    //checks to see if the user exists by userId
+    boolean existsUserByUserId(int userId);
+
+    //checks to see if the user exists by username
+    boolean existsUserByUsername(String username);
+
+    //checks to see if the username exists and matches the password
+    @Query("SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
+    User login(@Param("username") String username, @Param("password") String password);
 }
