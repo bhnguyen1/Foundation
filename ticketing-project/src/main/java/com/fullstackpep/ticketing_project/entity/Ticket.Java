@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 */
 
 @Entity
-//@Table(name = "ticket") - we will implment the table later
+@Table(name = "ticket") // we will implment the table later
 public class Ticket {
     @Column(name="ticketId")
     @Id @GeneratedValue
