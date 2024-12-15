@@ -31,15 +31,11 @@ public class UserService {
     @Transactional
     public User addUser(User user) {
         if(userRepository.existsUserByUsername(user.getUsername())) {
-            throw new RuntimeException("Username already exists!");
+            throw new IllegalStateException("Username already exists!");
         }
-        if(user.getUsername().isBlank() || user.getUsername().isEmpty()) {
-            throw new RuntimeException("Username or password can't be blank!");
+        if(user.getUsername().isEmpty() || user.getPassword().isEmpty()) {
+            throw new IllegalArgumentException("Username or password can't be blank!");
         }
-        if(user.getPassword().isBlank() || user.getPassword().isEmpty()) {
-            throw new RuntimeException("Username or password can't be blank!");
-        }
-    
         user.setRole(User.Role.EMPLOYEE);
         
         return userRepository.save(user);
@@ -48,7 +44,7 @@ public class UserService {
     public User login(String username, String password) {
         User user = userRepository.login(username, password);
         if(user == null) {
-            throw new RuntimeException("Invalid username or password!");
+            throw new IllegalArgumentException("Invalid username or password!");
         }
         return user;
     }

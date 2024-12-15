@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Optional;
@@ -49,22 +50,22 @@ public class TicketService {
     }
 
     @Transactional
-    public int changeTicketStatus(Integer ticketId, Ticket.Status newStatus) {
+    public int changeTicketStatus(int ticketId, Ticket.Status newStatus) {
         Optional<Ticket> ticket = ticketRepository.findById(ticketId);
         if(!ticket.isPresent()) {
-            throw new RuntimeException("Ticket does not exist!");
+            throw new NoSuchElementException("Ticket does not exist!");
         }
         if(ticket.get().getStatus() == newStatus) {
-            throw new RuntimeException("Ticket is already " + newStatus);
+            throw new IllegalArgumentException("Ticket is already " + newStatus);
         }
         if(newStatus == Ticket.Status.PENDING) {
-            throw new RuntimeException("Can't change status to PENDING!");
+            throw new IllegalArgumentException("Can't change status to PENDING!");
         }
         if(ticket.get().getStatus() == Ticket.Status.APPROVED && newStatus == Ticket.Status.DENIED) {
-            throw new RuntimeException("Can't change status to DENIED if it's already APPROVED!");
+            throw new IllegalArgumentException("Can't change status to DENIED if it's already APPROVED!");
         }
         if(ticket.get().getStatus() == Ticket.Status.DENIED && newStatus == Ticket.Status.APPROVED) {
-            throw new RuntimeException("Can't change status to APPROVED if it's already DENIED!");
+            throw new IllegalArgumentException("Can't change status to APPROVED if it's already DENIED!");
         }
         Ticket changedTicket = ticket.get();
         changedTicket.setStatus(newStatus);
@@ -72,7 +73,7 @@ public class TicketService {
         return 1;
     }
 
-    public List<Ticket> viewTicketByStatus(String status) {
+    public List<Ticket> viewTicketsByStatus(String status) {
         return ticketRepository.findTicketsByStatus(status);
     }
 
@@ -83,10 +84,10 @@ public class TicketService {
     @Transactional
     public Ticket submitTicket(Ticket ticket) {
         if(!userRepository.existsById(ticket.getSubmittedBy())) {
-            throw new RuntimeException("User does not exist!");
+            throw new NoSuchElementException("User does not exist!");
         }
         if(ticket.getDescription().isEmpty() || ticket.getAmount() < 0) {
-            throw new RuntimeException("Ticket does not follow the guidelines!");
+            throw new IllegalArgumentException("Ticket does not follow the guidelines!");
         }
         if(ticket.getStatus() != Ticket.Status.PENDING) {
             ticket.setStatus(Ticket.Status.PENDING);
