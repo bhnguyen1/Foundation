@@ -39,4 +39,5 @@ make the main class run the app
 
 make the sql table based on the object 
 
-
+With Spring project initalized,
+look at the packages we had on pep for the spring project
