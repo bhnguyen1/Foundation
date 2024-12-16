@@ -38,6 +38,8 @@ public class User {
         MANAGER
     }
 
+    //May need to include List of Tickets so that way we can have a one to many relationship to find all tickets by a user
+
     /*
      * A default, no-argument constructor
     */

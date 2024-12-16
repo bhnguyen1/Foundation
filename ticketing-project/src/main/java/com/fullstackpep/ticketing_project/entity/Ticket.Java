@@ -17,7 +17,8 @@ public class Ticket {
     private Integer ticketId;
 
     /**
-     * The id for the user who has submitted a ticket
+     * The id for the user who has submitted a ticket (foreign key)
+     * May need to reference the User class instead to get the user's information
     */
     private Integer submittedBy;
     
