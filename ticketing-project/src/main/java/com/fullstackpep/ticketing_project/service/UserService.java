@@ -36,7 +36,9 @@ public class UserService {
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty()) {
             throw new IllegalArgumentException("Username or password can't be blank!");
         }
-        user.setRole(User.Role.EMPLOYEE);
+        if(user.getRole() != User.Role.EMPLOYEE) {
+            user.setRole(User.Role.EMPLOYEE);
+        }
         
         return userRepository.save(user);
     }

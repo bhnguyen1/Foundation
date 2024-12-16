@@ -53,10 +53,10 @@ public class User {
      * @param username
      * @param password
     */
-    public User(String username, String password, Role role) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.role = Role.EMPLOYEE;
     }
 
     /*
@@ -66,11 +66,11 @@ public class User {
      * @param username
      * @param password
     */
-    public User(Integer userId, String username, String password, Role role) {
+    public User(Integer userId, String username, String password) {
         this.userId = userId;
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.role = Role.EMPLOYEE;
     }
 
     /*

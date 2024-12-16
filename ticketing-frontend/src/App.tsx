@@ -1,12 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import UserManagement from './Components/FormLogin/SmartComponent/UserManagement';
+import Navbar from './Components/Navbar/Navbar';
+import { AuthProvider } from './Components/Context/ReducerUserContext';
+
 
 
 function App() {
   return (
     <div className="App">
-        <h1>MyTicketingApp</h1>
+      <AuthProvider>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />}/>
+          <Route path="/login" element={<UserManagement />} />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }
