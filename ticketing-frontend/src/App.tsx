@@ -6,13 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* <ComponentOne/> */}
-      {/* <EventsDemo/> */}
-      {/* <ListDemo/> */}
-      {/* <ParentComponent/> */}
-      {/* <UserProvider> */}
-      {/* </UserProvider> */}
-        
+        <h1>MyTicketingApp</h1>
     </div>
   );
 }
