@@ -3,13 +3,14 @@
 import { createContext, useState, ReactNode } from 'react';
 
 export interface User {
+    userId: number;
     username: string;
-    password: string;
+    role: 'EMPLOYEE' | 'MANAGER';
 }
 
 interface UserContextType {
     user: User | null;
-    login: (string: string, password: string) => void;
+    login: (userData: User) => void;
     logout: () => void;
 }
 
@@ -22,8 +23,8 @@ interface UserProviderProps {
 export const UserProvider: React.FC<UserProviderProps> = ({children}) => {
     const [user, setUser] = useState<User | null>(null);
 
-    const login = (username: string, password: string) => {
-        setUser({username, password});
+    const login = (userData: User) => {
+        setUser(userData);
     }
 
     const logout = () => {

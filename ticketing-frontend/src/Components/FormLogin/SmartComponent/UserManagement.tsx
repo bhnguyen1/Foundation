@@ -16,16 +16,35 @@ function UserManagement() {
     
     const { dispatch } = context;
 
-    function handleSubmit(event: FormEvent) {
+    async function handleSubmit(event: FormEvent) {
         event.preventDefault();
         if(!username || !password) {
             return;
         }
         //some kind of api call to verify the user credentials
-        console.log({username, password});
-        if(context) {
-            dispatch({type: 'LOGIN', payload: {username, password}});
+        try{
+            const response = await fetch('http://localhost:8080/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({username, password}),
+            });
+
+            if(!response.ok) {
+                throw new Error('Failed to login');
+            }
+
+            const user = await response.json();
+            dispatch({type: 'LOGIN', payload: user});
+            //navigate to the home page
+        }  catch (error) {
+            console.error('Failed to login', error);
+        
         }
+
+        // console.log({username, password});
+        // if(context) {
+        //     dispatch({type: 'LOGIN', payload: {username, password}});
+        // }
     }
     
   return (
