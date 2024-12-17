@@ -6,6 +6,7 @@ function UserInput({username, setUsername, password, setPassword, handleSubmit}:
 
   return (
     <form onSubmit={handleSubmit}>
+        <h2>Login</h2>
         <label>Username: </label>
         <input type="text" value={username} onChange={(e: any) => setUsername(e.target.value)} placeholder="Enter your username"/>
         <br/>
