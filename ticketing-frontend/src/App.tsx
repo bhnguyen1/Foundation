@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import UserManagement from './Components/FormLogin/SmartComponent/UserManagement';
 import Navbar from './Components/Navbar/Navbar';
 import { AuthProvider } from './Components/Context/ReducerUserContext';
+import FormToggle from './Components/FormLogin/FormToggle/FormToggle';
 
 
 
@@ -15,7 +16,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />}/>
-          <Route path="/login" element={<UserManagement />} />
+          <Route path="/login" element={<FormToggle />} />
         </Routes>
       </AuthProvider>
     </div>
