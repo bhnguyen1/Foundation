@@ -25,13 +25,9 @@ function SubmitTickets() {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     //some kind of validation of maybe
-    if (!state.user || !state.user.userId) {
-      console.error('User not logged in or missing user ID.');
-      return;
-    }
   
     const ticketData = {
-      submittedBy: state.user.userId, //some kind of user id from the 
+      submittedBy: state.user?.userId, //some kind of user id from the 
       amount,
       description
     }
