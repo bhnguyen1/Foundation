@@ -9,7 +9,7 @@ function FormToggle() {
         <>
             {isRegistering ? (
                 <>
-                    <RegisterManagement switchToLogin={() => setIsRegistering(false)} />
+                    <RegisterManagement switchToLogin={() => setIsRegistering(false)} /> 
                     <button onClick={() => setIsRegistering(false)}>Switch to Login</button>
                 </> ) : 
                 (

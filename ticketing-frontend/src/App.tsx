@@ -25,7 +25,7 @@ function App() {
             <Route path="/" element={<Navigate to="/login" replace />}/>
             <Route path="/login" element={<FormToggle />} />
             <Route path="/view-tickets" element={<ViewTickets />} />
-            <Route path="/submit=tickets" element={<SubmitTickets />} />
+            <Route path="/submit-tickets" element={<SubmitTickets />} />
             <Route path="/approve-tickets" element={<ApproveTickets />} />
             <Route path="/query-tickets" element={<QueryTickets />} />
           </Routes>

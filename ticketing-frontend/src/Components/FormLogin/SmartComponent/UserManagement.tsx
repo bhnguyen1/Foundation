@@ -49,9 +49,9 @@ function UserManagement() {
     
   return (
     <>
-        <UserInfo/>
         <UserInput username={username} setUsername={setUsername} password={password} 
         setPassword={setPassword} handleSubmit={handleSubmit}/>
+        <UserInfo/>
     </>
   )
 }

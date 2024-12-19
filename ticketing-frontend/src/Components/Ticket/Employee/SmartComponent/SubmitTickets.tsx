@@ -20,13 +20,18 @@ function SubmitTickets() {
 
   const { submitTicket } = ticketContext;
   const { state } = authContext;
+  // console.log(state)
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     //some kind of validation of maybe
-
+    if (!state.user || !state.user.userId) {
+      console.error('User not logged in or missing user ID.');
+      return;
+    }
+  
     const ticketData = {
-      submitter: state.user ? state.user.userId : '', //some kind of user id from the 
+      submittedBy: state.user.userId, //some kind of user id from the 
       amount,
       description
     }
@@ -39,7 +44,7 @@ function SubmitTickets() {
       });
 
       if(!response.ok) {
-        throw new Error('Failed to submit ticket');
+        throw new Error('Failed to submit ticket!');
       }
 
       const savedTicket = await response.json();
