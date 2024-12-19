@@ -1,7 +1,7 @@
 import React, {createContext, useState, ReactNode} from 'react'
     
 export interface Ticket {
-    id?: number;
+    ticketId?: number;
     submittedBy: number;
     amount: number;
     description: string;

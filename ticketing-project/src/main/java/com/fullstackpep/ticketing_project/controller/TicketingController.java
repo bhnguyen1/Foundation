@@ -44,7 +44,7 @@ public class TicketingController {
     //get ticket by status
     //could be wrong path variable parameter - check error log to make sure 
     @GetMapping("/tickets/{status}")
-    public @ResponseBody List<Ticket> getTicketsByStatus(@PathVariable String status) {
+    public @ResponseBody List<Ticket> getTicketsByStatus(@PathVariable Ticket.Status status) {
         return ticketService.viewTicketsByStatus(status);
     }
 

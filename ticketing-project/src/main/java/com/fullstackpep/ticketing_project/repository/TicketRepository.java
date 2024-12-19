@@ -28,5 +28,5 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer>{
     List<Ticket> findTicketsBySubmittedBy(Integer userId);
 
     //checks to see all tickets by a certain status
-    List<Ticket> findTicketsByStatus(String status);
+    List<Ticket> findTicketsByStatus(Ticket.Status status);
 }

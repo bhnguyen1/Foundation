@@ -1,13 +1,12 @@
 import React from 'react'
 import { Ticket } from '../../../Context/TicketContext'
 
-interface ViewTableProps {
-  tickets: Ticket[];
+interface QueryTableProps {
+  tickets: Ticket[]; 
 }
 
-function ViewTable({tickets}: ViewTableProps) {
+function QueryTable({tickets}: QueryTableProps) { //will need to inlcude props later
   return (
-    //This will be the table that displays the tickets
     <div>
       <table>
         <thead>
@@ -15,7 +14,6 @@ function ViewTable({tickets}: ViewTableProps) {
             <th>Ticket ID</th>
             <th>Description</th>
             <th>Amount</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -24,7 +22,6 @@ function ViewTable({tickets}: ViewTableProps) {
               <td>{ticket.ticketId}</td>
               <td>{ticket.description}</td>
               <td>${ticket.amount}</td>
-              <td>{ticket.status}</td>
             </tr>
           ))}
         </tbody>
@@ -33,4 +30,4 @@ function ViewTable({tickets}: ViewTableProps) {
   )
 }
 
-export default ViewTable
+export default QueryTable

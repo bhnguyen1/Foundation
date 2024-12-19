@@ -66,11 +66,11 @@ public class User {
      * @param username
      * @param password
     */
-    public User(Integer userId, String username, String password) {
+    public User(Integer userId, String username, String password, Role role) {
         this.userId = userId;
         this.username = username;
         this.password = password;
-        this.role = Role.EMPLOYEE;
+        this.role = role;
     }
 
     /*

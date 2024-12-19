@@ -71,7 +71,7 @@ public class TicketService {
         return 1;
     }
 
-    public List<Ticket> viewTicketsByStatus(String status) {
+    public List<Ticket> viewTicketsByStatus(Ticket.Status status) {
         return ticketRepository.findTicketsByStatus(status);
     }
 

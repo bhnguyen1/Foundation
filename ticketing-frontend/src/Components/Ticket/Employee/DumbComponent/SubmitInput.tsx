@@ -11,8 +11,8 @@ function SubmitInput({description, setDescription, amount, setAmount, handleSubm
         <label>Description: </label>
         <input type="text" value={description} onChange={(e: any) => setDescription(e.target.value)} placeholder="Enter the description"/>
         <br/>
-        <label>Amount: </label>
-        <input type="number" value={amount} onChange={(e: any) => setAmount(e.target.value)} placeholder="Enter the amount"/>
+        <label>Amount:</label>
+         $<input type="number" value={amount} onChange={(e: any) => setAmount(e.target.value)} placeholder="Enter the amount"/>
         <br/>
         <button type="submit">Submit</button>
     </form>

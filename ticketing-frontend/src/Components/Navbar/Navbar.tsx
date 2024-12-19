@@ -42,9 +42,6 @@ function Navbar() {
                                 <li className="nav-item">
                                     <Link className="nav-link" aria-current="page" to="/approve-tickets">Approve Tickets</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/query-tickets">Query Tickets</Link>
-                                </li>
                             </>
                         )}
                     </ul>
