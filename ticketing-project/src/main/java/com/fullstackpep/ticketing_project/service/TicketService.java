@@ -87,7 +87,7 @@ public class TicketService {
         if(ticket.getDescription().isEmpty() || ticket.getAmount() < 0) {
             throw new IllegalArgumentException("Ticket does not follow the guidelines!");
         }
-        if(ticket.getStatus() != Ticket.Status.PENDING) {
+        if(ticket.getStatus() == null) {
             ticket.setStatus(Ticket.Status.PENDING);
         }
     
