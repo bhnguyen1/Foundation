@@ -31,9 +31,11 @@ public class UserService {
     @Transactional
     public User addUser(User user) {
         if(userRepository.existsUserByUsername(user.getUsername())) {
+            System.out.println("Username already exists!");
             throw new IllegalStateException("Username already exists!");
         }
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty()) {
+            System.out.println("Username or password can't be blank!");
             throw new IllegalArgumentException("Username or password can't be blank!");
         }
         if(user.getRole() == null) {
@@ -44,8 +46,11 @@ public class UserService {
     }
 
     public User login(String username, String password) {
+        System.out.println("User is logging in");
         User user = userRepository.login(username, password);
+        System.out.println("User is logged in");
         if(user == null) {
+            System.out.println("Invalid username or password!");
             throw new IllegalArgumentException("Invalid username or password!");
         }
         return user;

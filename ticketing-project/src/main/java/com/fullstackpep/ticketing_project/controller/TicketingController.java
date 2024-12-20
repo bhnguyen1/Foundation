@@ -32,11 +32,17 @@ public class TicketingController {
     @PatchMapping("/tickets/{ticketId}")
     public @ResponseBody ResponseEntity<Integer> patchTicket(@PathVariable int ticketId, @RequestBody Ticket ticket) {
         try {
+            System.out.println("Entering changeTicketStatus");
             int updatedTicket = ticketService.changeTicketStatus(ticketId, ticket.getStatus());
+            System.out.println("Exiting changeTicketStatus");
             return ResponseEntity.ok(updatedTicket);
         } catch (NoSuchElementException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(404).body(null);
         } catch (IllegalArgumentException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(400).body(null);
         }
     }
@@ -57,12 +63,18 @@ public class TicketingController {
     @PostMapping("/tickets")
     public @ResponseBody ResponseEntity<Ticket> postTicket(@RequestBody Ticket ticket) {
         try {
+            System.out.println("Entering submitTicket");
             Ticket newTicket = ticketService.submitTicket(ticket);
+            System.out.println("Exiting submitTicket");
             return ResponseEntity.ok(newTicket);
         } catch (NoSuchElementException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(401).body(null);
         } 
         catch (IllegalArgumentException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(400).body(null);
         }
     }
@@ -71,9 +83,13 @@ public class TicketingController {
     @PostMapping("/login")
     public @ResponseBody ResponseEntity<User> postLogin(@RequestBody User user) {
         try {
+            System.out.println("Entering login");
             User loggedInUser = userService.login(user.getUsername(), user.getPassword());
+            System.out.println("Exiting login");
             return ResponseEntity.ok(loggedInUser);
         } catch (IllegalArgumentException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(401).body(null);
         }
     }
@@ -81,11 +97,17 @@ public class TicketingController {
     @PostMapping("/register")
     public @ResponseBody ResponseEntity<User> postRegister(@RequestBody User user) {
         try {
+            System.out.println("Entering addUser");
             User newUser = userService.addUser(user);
+            System.out.println("Exiting addUser");
             return ResponseEntity.ok(newUser);
         } catch (IllegalStateException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(409).body(null);
         } catch (IllegalArgumentException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(400).body(null);
         }
     }
