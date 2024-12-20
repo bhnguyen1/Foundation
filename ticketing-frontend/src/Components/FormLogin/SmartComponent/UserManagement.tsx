@@ -3,12 +3,14 @@ import UserInput from '../DumbComponent/UserInput'
 import { FormEvent, useState, useContext } from 'react'
 import { AuthContext } from '../../Context/ReducerUserContext';
 import UserInfo from '../UserInfo/UserInfo';
+import { useNavigate } from 'react-router-dom';
 
 function UserManagement() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const context = useContext(AuthContext);
+    const navigate = useNavigate();
 
     if(!context) {
         throw new Error("Login must be used within an AuthProvider");
@@ -35,6 +37,7 @@ function UserManagement() {
 
             const user = await response.json();
             dispatch({type: 'LOGIN', payload: user});
+            navigate('/home');
             //navigate to the home page
         }  catch (error) {
             console.error('Failed to login', error);

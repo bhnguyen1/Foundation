@@ -11,6 +11,7 @@ import SubmitTickets from './Components/Ticket/Employee/SmartComponent/SubmitTic
 import ApproveTickets from './Components/Ticket/Manager/SmartComponent/ApproveTickets';
 import QueryTickets from './Components/Ticket/Manager/SmartComponent/QueryTickets';
 import { TicketProvider } from './Components/Context/TicketContext';
+import UserInfo from './Components/FormLogin/UserInfo/UserInfo';
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/login" replace />}/>
             <Route path="/login" element={<FormToggle />} />
+            <Route path="/home" element={<UserInfo />} />
             <Route path="/view-tickets" element={<ViewTickets />} />
             <Route path="/submit-tickets" element={<SubmitTickets />} />
             <Route path="/approve-tickets" element={<ApproveTickets />} />
