@@ -60,7 +60,7 @@ public class TicketingController {
             Ticket newTicket = ticketService.submitTicket(ticket);
             return ResponseEntity.ok(newTicket);
         } catch (NoSuchElementException e) {
-            return ResponseEntity.status(400).body(null);
+            return ResponseEntity.status(401).body(null);
         } 
         catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);

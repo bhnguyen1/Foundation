@@ -14,6 +14,14 @@ function RegisterManagement({ switchToLogin } : { switchToLogin: () => void }) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({username, password}),
             });
+            if(response.status === 409) {
+                alert('Username already exists!');
+                return;
+            } 
+            if (response.status === 400) {
+                alert('Username or password is empty!');
+                return;
+            }
             if (!response.ok) {
             throw new Error('Failed to register');
             }

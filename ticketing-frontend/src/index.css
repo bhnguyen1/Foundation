@@ -14,6 +14,46 @@ nav {
   background: linear-gradient(90deg, rgba(249,245,230,1) 0%, rgba(206,236,255,1) 100%); 
 }
 
+/* Ensure the container has proper padding */
+.view-tickets-container {
+  padding: 20px;
+}
+
+/* Add spacing between the header and the table */
+.view-tickets-container h1 {
+  margin-bottom: 20px;
+  text-align: left; /* Align header to the left if needed */
+  overflow-y: auto;
+}
+
+/* Style the table */
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensure the table has no gaps between borders */
+  margin-top: 20px; /* Space between the header and table */
+}
+
+/* Table header styling */
+.ticket-table th {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  z-index: 1; /* Ensure the header is above the table rows */
+  position: sticky; /* Stick the header to the top */
+}
+
+/* Table row styling */
+.ticket-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Alternate row colors for readability */
+.ticket-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

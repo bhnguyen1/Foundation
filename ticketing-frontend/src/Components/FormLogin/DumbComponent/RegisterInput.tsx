@@ -28,7 +28,7 @@ type RegisterInputProps = {username: string, setUsername: React.Dispatch<React.S
           </div>
           <div className="d-flex justify-content-between mt-3">
               <button type="submit" className="btn btn-success">Register</button>
-              <button type="reset" className="btn btn-secondary">Reset</button>
+              
           </div>
       </form>
     );

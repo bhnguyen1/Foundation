@@ -5,11 +5,10 @@ interface ViewTableProps {
   tickets: Ticket[];
 }
 
-function ViewTable({tickets}: ViewTableProps) {
+function ViewTable({ tickets }: ViewTableProps) {
   return (
-    //This will be the table that displays the tickets
-    <div>
-      <table>
+    <div className="table-container">
+      <table className="ticket-table">
         <thead>
           <tr>
             <th>Ticket ID</th>
@@ -30,7 +29,8 @@ function ViewTable({tickets}: ViewTableProps) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
+
 
 export default ViewTable

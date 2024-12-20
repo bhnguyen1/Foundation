@@ -41,13 +41,15 @@ function ViewTickets() {
   }, [userId, getTickets]);
   
   return (
-    <div>
+    <div className="view-tickets-container">
       <h1>My Tickets</h1>
       {tickets.length > 0 ? (
-        <ViewTable tickets={tickets}/>
-      ) : (<p>No Tickets Found</p>)}
+        <ViewTable tickets={tickets} />
+      ) : (
+        <p>No Tickets Found</p>
+      )}
     </div>
-  );
+  );  
 }
 
 export default ViewTickets;

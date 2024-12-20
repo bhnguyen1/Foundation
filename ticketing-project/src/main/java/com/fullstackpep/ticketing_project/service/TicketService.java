@@ -84,7 +84,7 @@ public class TicketService {
         if(!userRepository.existsById(ticket.getSubmittedBy())) {
             throw new NoSuchElementException("User does not exist!");
         }
-        if(ticket.getDescription().isEmpty() || ticket.getAmount() < 0) {
+        if(ticket.getDescription().isEmpty() || ticket.getAmount() <= 0) {
             throw new IllegalArgumentException("Ticket does not follow the guidelines!");
         }
         if(ticket.getStatus() == null) {

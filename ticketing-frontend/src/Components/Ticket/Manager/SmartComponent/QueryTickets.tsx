@@ -36,7 +36,6 @@ function QueryTickets() {
 
   return (
     <div>
-      <h1>Query Tickets</h1>
       {tickets.length > 0 ? (
         <QueryTable tickets={tickets}/>
       ) : (<p>No Tickets Found</p>)}

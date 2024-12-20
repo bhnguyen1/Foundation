@@ -28,7 +28,6 @@ function UserInput({ username, setUsername, password, setPassword, handleSubmit 
         </div>
         <div className="d-flex justify-content-between mt-3">
             <button type="submit" className="btn btn-success">Login</button>
-            <button type="reset" className="btn btn-secondary">Reset</button>
         </div>
     </form>
   );

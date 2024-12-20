@@ -7,8 +7,8 @@ interface QueryTableProps {
 
 function QueryTable({tickets}: QueryTableProps) { //will need to inlcude props later
   return (
-    <div>
-      <table>
+    <div className="table-container">
+      <table className="ticket-table">
         <thead>
           <tr>
             <th>Ticket ID</th>

@@ -8,13 +8,26 @@ function SubmitInput({description, setDescription, amount, setAmount, handleSubm
   return (
     <form onSubmit={handleSubmit}>
         <h2>Submit Ticket</h2>
-        <label>Description: </label>
-        <input type="text" value={description} onChange={(e: any) => setDescription(e.target.value)} placeholder="Enter the description"/>
+        <div className="mb-3">
+          <label>Description: </label>
+          <textarea
+            id="description"
+            className="form-control"
+            value={description}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
+            placeholder="Enter the description"
+            rows={3}
+            style={{width: '50%', margin: '0 auto', display: 'block'}}
+          ></textarea>
+        </div>
         <br/>
-        <label>Amount:</label>
-         $<input type="number" value={amount} onChange={(e: any) => setAmount(e.target.value)} placeholder="Enter the amount"/>
+        <div className="mb-3">
+          <label className="form-label">Amount: </label>
+          <input type="number" className="form-control" id="exampleFormControlInput1" style={{width: '45%', margin: '0 auto', display: 'block'}} 
+          placeholder="Enter the amount in $00.00" value={amount} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAmount(Number(e.target.value))}/>
+        </div>
         <br/>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-outline-dark">Submit</button>
     </form>
   )
 }

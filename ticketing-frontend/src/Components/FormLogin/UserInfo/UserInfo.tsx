@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/ReducerUserContext';
 import { useNavigate } from 'react-router-dom';
+import ticketingLogo from '../../../ticketingLogo.png';
 
 function UserInfo() {
     const context = useContext(AuthContext);
@@ -22,6 +23,8 @@ function UserInfo() {
             {state.user && (
                 <div>
                     <h1>Welcome, {state.user.username}</h1>
+                    <img src={ticketingLogo} alt="Ticketing Logo" width="250px" height="250px" style={{ marginBottom: "20px" }}/>
+                    <br />
                     <button className="btn btn-outline-dark" onClick={handleLogout}>Logout</button>
                 </div>
             )}

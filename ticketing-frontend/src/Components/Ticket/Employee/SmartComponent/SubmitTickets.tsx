@@ -39,6 +39,14 @@ function SubmitTickets() {
         body: JSON.stringify(ticketData)
       });
 
+      if(response.status === 401) {
+        alert('You must be logged in to submit a ticket');
+        return;
+      }
+      if(response.status === 400) {
+        alert('Please enter a valid amount or description');
+        return;
+      }
       if(!response.ok) {
         throw new Error('Failed to submit ticket!');
       }
@@ -48,6 +56,7 @@ function SubmitTickets() {
       setAmount(0);
       setDescription('');
       //print message to the user that the ticket was submitted
+      alert('Ticket submitted successfully');
     } catch(error) {
       console.error('Failed to submit ticket', error);
     }
