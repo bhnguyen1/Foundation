@@ -23,7 +23,7 @@ public class TicketTest {
     void testFullConstructor() {
         Ticket ticket = new Ticket(1, 100, "description");
 
-        // Assert
+        
         assertEquals(null, ticket.getTicketId(), "Ticket ID should be set correctly");
         assertEquals(100, ticket.getAmount(), "Amount should be set correctly");
         assertEquals("description", ticket.getDescription(), "Description should be set correctly");
@@ -36,7 +36,7 @@ public class TicketTest {
         ticket.setAmount(100);
         ticket.setDescription("description");
 
-        // Assert
+        
         assertEquals(1, ticket.getTicketId(), "Ticket ID should be set correctly");
         assertEquals(100, ticket.getAmount(), "Amount should be set correctly");
         assertEquals("description", ticket.getDescription(), "Description should be set correctly");
